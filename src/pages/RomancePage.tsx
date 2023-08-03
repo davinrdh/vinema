@@ -5,14 +5,14 @@ import Skeleton from 'react-loading-skeleton'
 import { Form } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
-const ActionPage = () => {
+const RomancePage = () => {
   const navigate = useNavigate()
   const [action, setAction] = useState('')
   const [emulator, setEmulator] = useState()
   const [sort, setSort] = useState('')
 
   useEffect(() => {
-    getFilter(`with_genres=28`).then((res) => {
+    getFilter(`with_genres=10749`).then((res) => {
       setAction(res)
       console.log(res)
     })
@@ -20,7 +20,7 @@ const ActionPage = () => {
 
     useEffect(() => {
       if(sort) {
-        getSort(`sort_by=${sort}`, `with_genres=28`).then((res) => {
+        getSort(`sort_by=${sort}`, `with_genres=10749`).then((res) => {
         setAction(res)
         console.log(res)
         })
@@ -62,7 +62,7 @@ const ActionPage = () => {
   return (
     <>
       <div className='header'>
-        <h2 className='kategori'>Action Movie</h2>
+        <h2 className='kategori'>Romance Movie</h2>
         <div className='d-flex gap-3'>
           <p>Sort By :</p>
           <Form.Select aria-label="Default select example" onChange={(e) => {
@@ -85,4 +85,4 @@ const ActionPage = () => {
   )
 }
 
-export default ActionPage
+export default RomancePage

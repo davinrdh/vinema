@@ -10,6 +10,11 @@ export const getMovie = async () => {
     return movie?.data?.results
 }
 
+export const getSimilar = async (id: any) => {
+    const similar = await axios.get(`${baseUrl}/movie/${id}/similar?api_key=${apiKey}`)
+    return similar?.data?.results
+}
+
 export const searchMovie = async (q:any) => {
     const search = await axios.get(`${baseUrl}/search/movie?query=${q}&api_key=${apiKey}`)
     return search?.data?.results

@@ -10,29 +10,17 @@ const Sidebar = () => {
                     <h2>Genre</h2>
                         <NavLink className="option" to={'/genres/action'}>Action</NavLink>
                         <NavLink className="option" to={'/genres/horror'}>Horor</NavLink>
-                        <NavLink className="option" to={'/genres/action'}>Comedy</NavLink>
-                        <NavLink className="option" to={'/genres/action'}>Adventure</NavLink>
-                        <NavLink className="option" to={'/genres/action'}>Sci-Fi</NavLink>
-                        <NavLink className="option" to={'/genres/action'}>Romance</NavLink>
-                        <NavLink className="option" to={'/genres/action'}>Drama</NavLink>
-                        <NavLink className="option" to={'/genres/action'}>More..</NavLink>
-                    {/* <div className="option">Horor</div>
-                    <div className="option">Comedy</div>
-                    <div className="option">Adventure</div>
-                    <div className="option">Sci-Fi</div>
-                    <div className="option">Romance</div>
-                    <div className="option">Drama</div>
-                    <div className="option">More..</div> */}
+                        <NavLink className="option" to={'/genres/comedy'}>Comedy</NavLink>
+                        <NavLink className="option" to={'/genres/animation'}>Animation</NavLink>
+                        <NavLink className="option" to={'/genres/science-fiction'}>Sci-Fi</NavLink>
+                        <NavLink className="option" to={'/genres/romance'}>Romance</NavLink>
+                        <NavLink className="option" to={'/genres/drama'}>Drama</NavLink>
+                        <NavLink className="option" to={'/genres/filter'}>More..</NavLink>
                 </div>
                 <div className="list">
                     <h2>Language</h2>
-                    <NavLink className="option" to={'/genres/action'}>Indonesia</NavLink>
-                    <NavLink className="option" to={'/genres/action'}>English</NavLink>
-                    {/* <div className="option">Indonesia</div>
-                    <div className="option">English</div> */}
-                    {/* <div className="option">Korea</div>
-                <div className="option">Jepang</div>
-                <div className="option">More..</div> */}
+                    <NavLink className="option" to={'/language/indonesian'}>Indonesian</NavLink>
+                    <NavLink className="option" to={'/language/english'}>English</NavLink>
                 </div>
             </div>
         </>

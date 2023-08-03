@@ -13,6 +13,7 @@ const CardMovie = ({ movie }: ICardMovie) => {
   const [emulatorImg, setEmulatorImg] = useState('')
   const [emulator, setEmulator] = useState('')
 
+
   useEffect(() => {
     const img = movie
     const emt = movie
@@ -24,10 +25,9 @@ const CardMovie = ({ movie }: ICardMovie) => {
 
   return (
     <>
-      { emulator &&
+      {emulator &&
         <div className="movie card" onClick={() => navigate(`/detail/${movie.id}`)}>
           <div className="release">{movie?.release_date.slice(0, 4)}</div>
-          {/* <img src={`${import.meta.env.VITE_APP_BASEIMG}/${movie?.poster_path}`} alt="" /> */}
           {emulatorImg &&
             <img src={`${import.meta.env.VITE_APP_BASEIMG}/${movie?.poster_path}`} alt="" />}
           {!emulatorImg &&
@@ -40,10 +40,13 @@ const CardMovie = ({ movie }: ICardMovie) => {
           </div>
           <div className="movie-title text-truncate">{movie.title}</div>
           <div className="movie-rate"><i className="bi bi-star-fill"></i> {movie.vote_average} </div>
+          {/* <div className="hover-effect">
+            {movie.title}
+          </div> */}
         </div>
       }
       {
-        !emulator && 
+        !emulator &&
         <Skeleton count={1} width="170px" height="300px" />
       }
     </>

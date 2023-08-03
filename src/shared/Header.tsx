@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import '../styles/Header.scss'
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
 
 // import {useState} from "react"
@@ -32,7 +32,7 @@ const Header = () => {
       <Navbar id="navbar" expand="lg" className=''>
         <Container fluid className='d-flex justify-content-evenly'>
           <div>
-            <Navbar.Brand onClick={() => navigate('/')}>VINEMA.<span className='red'>I</span>D</Navbar.Brand>
+            <Navbar.Brand as={NavLink} to={'/'}>VINEMA.<span className='red'>I</span>D</Navbar.Brand>
           </div>
           <Navbar.Toggle aria-controls="navbarScroll" />
           {/* <Navbar.Collapse id="navbarScroll"  > */}

@@ -1,9 +1,11 @@
 .rightbar {
     margin-top: 72px;
     width: 200px;
+    // overflow: hidden;
     min-height: 100vh;
-    background-color: rgb(0, 0, 0, 0.9);
+    // background-color: rgb(0, 0, 0, 0.9);
     // background-color: #331D2C;
+    background-color: #3F2E3E;
     position: fixed;
     // left: 90%;
     right: 0;
@@ -28,5 +30,9 @@
         // margin-left: 15px;
         // color: rgb(245, 245, 245, 0.7);
         color: whitesmoke;
+    }
+
+    button {
+        display: none;
     }
 }

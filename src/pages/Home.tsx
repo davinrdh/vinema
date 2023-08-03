@@ -1,13 +1,10 @@
 import { useState, useEffect } from "react"
-import { Container, Form } from "react-bootstrap"
+import { Container } from "react-bootstrap"
 import CardMovie from "../components/CardMovie"
 import { getMovie } from "../services/Api"
-import Upcoming from "../components/Upcoming"
 import '../styles/Home.scss'
-import Header from "../shared/Header"
 import Skeleton from "react-loading-skeleton"
 import 'react-loading-skeleton/dist/skeleton.css'
-import Sidebar from "../shared/Sidebar"
 import Rightbar from "../shared/Rightbar"
 
 const Home = () => {
@@ -49,7 +46,7 @@ const Home = () => {
         </div> */}
          <div className='header'>
         <h2 className='kategori'>Popular Movie</h2>
-        <div className='d-flex gap-3'>
+        {/* <div className='d-flex gap-3'>
           <p>Sort By :</p>
           <Form.Select aria-label="Default select example">
             <option>---</option>
@@ -57,7 +54,7 @@ const Home = () => {
             <option value="2">Two</option>
             <option value="3">Three</option>
           </Form.Select>
-        </div>
+        </div> */}
       </div>
         <div className="content text-center">
           {MovieList() || <Skeleton />}

@@ -26,7 +26,7 @@
         width: 170px;
         height: 300px;
         cursor: pointer;
-        position: relative;
+        // position: relative;
         overflow: hidden;
         color: whitesmoke;
 
@@ -67,16 +67,22 @@
             margin: 0;
             padding: 0;
         }
-        // &:hover {
-        //     img {
-        //         filter: blur(5px);
-        //     }
 
-        //     .overlay {
-        //         opacity: 1;
-        //         top: 50%;
-        //     }
-        // }
+        .hover-effect {
+            opacity: 0;
+            padding: 2px;
+            background-color: #3F2E3E;
+            position: absolute;
+            top: -30px;
+        }
+
+        &:hover {
+
+            .hover-effect {
+                opacity: 1;
+                // top: -10px;
+            }
+        }
 
         .overlay {
             position: absolute;

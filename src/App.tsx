@@ -8,6 +8,14 @@ import ActionPage from './pages/ActionPage';
 import NavBarLayout from './routing/NavbarLayout';
 import SidebarLayout from './routing/SidebarLayout';
 import HorrorPage from './pages/HorrorPage';
+import ComedyPage from './pages/ComedyPage';
+import AnimationPage from './pages/AnimationPage';
+import ScienceFictionPage from './pages/ScienceFictionPage';
+import RomancePage from './pages/RomancePage';
+import DramaPage from './pages/DramaPage';
+import FilterPage from './pages/FilterPage';
+import IndonesiaPage from './pages/IndonesiaPage';
+import EnglishPage from './pages/EnglishPage';
 // import { searchMovie } from './services/Api';
 // import { useState } from 'react';
 
@@ -49,6 +57,14 @@ const App = () => {
               <Route index element={<Home />} />
               <Route path='/genres/action' element={<ActionPage />} />
               <Route path='/genres/horror' element={<HorrorPage />} />
+              <Route path='/genres/comedy' element={<ComedyPage />} />
+              <Route path='/genres/animation' element={<AnimationPage />} />
+              <Route path='/genres/science-fiction' element={<ScienceFictionPage />} />
+              <Route path='/genres/romance' element={<RomancePage />} />
+              <Route path='/genres/drama' element={<DramaPage />} />
+              <Route path='/genres/filter' element={<FilterPage />} />
+              <Route path='/language/indonesian' element={<IndonesiaPage />} />
+              <Route path='/language/english' element={<EnglishPage />} />
             </Route>
             <Route path='detail/:id' element={<Detail />} />
           </Route>

@@ -121,10 +121,10 @@ const Rightbar = () => {
     const renderUpcoming = () => {
         return upcomings?.map((movie: any, key: number) => {
             return (
-                <div className="carousel">
+                <div className="carousel" key={key}>
                     <div className="carousel">
                         { emulatorUp && 
-                        <div className="movie card" onClick={() => navigator(`/detail/${movie.id}`)} key={key}>
+                        <div className="movie card" onClick={() => navigator(`/detail/${movie.id}`)}>
                             <img src={`${import.meta.env.VITE_APP_BASEIMG}/${movie?.poster_path}`} alt="" />
                         </div>}
 
@@ -140,10 +140,10 @@ const Rightbar = () => {
     const renderNowPlaying = () => {
         return nowPlaying?.map((movie: any, key: number) => {
             return (
-                <div className="carousel">
+                <div className="carousel" key={key}>
                     <div className="carousel">
                     { emulatorNow && 
-                        <div className="movie card" onClick={() => navigator(`/detail/${movie.id}`)} key={key}>
+                        <div className="movie card" onClick={() => navigator(`/detail/${movie.id}`)}>
                             <img src={`${import.meta.env.VITE_APP_BASEIMG}/${movie?.poster_path}`} alt="" />
                         </div>}
 

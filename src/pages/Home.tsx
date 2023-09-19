@@ -9,58 +9,55 @@ import Rightbar from "../shared/Rightbar"
 
 const Home = () => {
   const [movies, setMovies] = useState<any>()
+  const [activeBackground, setActiveBackground] = useState<any>()
 
   useEffect(() => {
     getMovie().then((res) => {
       setMovies(res)
       // console.log(res);
-      
+
     })
   }, [])
+
+  const handleMouseOverParent = (movie: any) => {
+    setActiveBackground(movie.id)
+  }
 
 
   const MovieList = () => {
     return movies?.map((movie: any, i: number) => (
-      <CardMovie movie={movie} key={i} />
+      <CardMovie movie={movie} key={i} handleMouseOver={(movie: any) => handleMouseOverParent(movie)}/>
     ))
   }
 
 
   return (
     <>
-      {/* <Header /> */}
-      {/* <input type="text" onChange={({target}) => search(target.value)} /> */}
-      {/* <Container>
-        <div className="hero">
-          <h1>Welcome To VINEMA.<span>I</span>D</h1>
-        </div>
-      </Container> */}
-      {/* <Upcoming /> */}
       <div className="position-relative">
-      {/* <Sidebar /> */}
-      <Container id='container' className=' mt-4'>
-
-        {/* <div className="flex">
-          <div className="vertikal"></div>
-          <h4 className="">Popular Movie</h4>
-        </div> */}
-         <div className='header'>
-        <h2 className='kategori'>Popular Movie</h2>
-        {/* <div className='d-flex gap-3'>
-          <p>Sort By :</p>
-          <Form.Select aria-label="Default select example">
-            <option>---</option>
-            <option value="">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </Form.Select>
-        </div> */}
-      </div>
-        <div className="content text-center">
-          {MovieList() || <Skeleton />}
-        </div>
-      </Container>
-      <Rightbar />
+        <Container id='container' className=''>
+          <div className="d-flex justify-content-center">
+            <div className="hero">
+            {/* {
+              movies?.map((movie: any, i:number) => (
+                <div className="bg-hero" key={i}>
+                  <img src={`${import.meta.env.VITE_APP_BASEIMGORI}/${movie?.backdrop_path}`} alt="" className={activeBackground == null || activeBackground == movie?.id ? 'active' : ''} />
+                </div>
+              ))
+            } */}
+              <div>
+                <h1>Welcome.</h1>
+                <h2>Millions of movies, TV shows and people to discover. Explore now.</h2>
+              </div>
+            </div>
+          </div>
+          <div className='header'>
+            {/* <h2 className='kategori'>Popular Movie</h2> */}
+          </div>
+          <div className="content text-center">
+            {MovieList() || <Skeleton />}
+          </div>
+        </Container>
+        <Rightbar />
       </div>
     </>
   )

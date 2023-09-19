@@ -17,7 +17,7 @@
         padding: 10px;
         display: flex;
         flex-direction: column;
-        row-gap: 10px;
+        // row-gap: 10px;
 
         &::-webkit-scrollbar {
             display: none;
@@ -25,14 +25,14 @@
 
         .result {
             display: flex;
-            column-gap: 10px;
+            // column-gap: 10px;
             // background: red;
             align-items: center;
             cursor: pointer;
-            box-shadow: 0 0 1px whitesmoke;
+            // box-shadow: 0 0 1px whitesmoke;
 
             &:hover {
-                background-color: rgba(255, 0, 0, 0.275);
+                background-color: rgba(76, 46, 67, 0.2);
             }
 
             .title {
@@ -80,4 +80,13 @@
     position: absolute;
     right: -15px;
     top: 5px;
+}
+
+hr {
+    margin: 10px 0;
+}
+
+.loading {
+    margin-top: 50%;
+    margin-left: 45%;
 }

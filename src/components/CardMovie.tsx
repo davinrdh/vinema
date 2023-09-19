@@ -5,10 +5,11 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import { useEffect, useState } from "react";
 
 interface ICardMovie {
-  movie: any
+  movie: any,
+  handleMouseOver: any
 }
 
-const CardMovie = ({ movie }: ICardMovie) => {
+const CardMovie = ({ movie, handleMouseOver }: ICardMovie) => {
   const navigate = useNavigate()
   const [emulatorImg, setEmulatorImg] = useState('')
   const [emulator, setEmulator] = useState('')
@@ -23,10 +24,12 @@ const CardMovie = ({ movie }: ICardMovie) => {
     }, 1 * 1000)
   })
 
+
+
   return (
     <>
       {emulator &&
-        <div className="movie card" onClick={() => navigate(`/detail/${movie.id}`)}>
+        <div className="movie card" onClick={() => navigate(`/detail/${movie.id}`)} onMouseOver={() => handleMouseOver(movie)}>
           <div className="release">{movie?.release_date.slice(0, 4)}</div>
           {emulatorImg &&
             <img src={`${import.meta.env.VITE_APP_BASEIMG}/${movie?.poster_path}`} alt="" />}

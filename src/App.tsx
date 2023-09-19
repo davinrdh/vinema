@@ -16,6 +16,7 @@ import DramaPage from './pages/DramaPage';
 import FilterPage from './pages/FilterPage';
 import IndonesiaPage from './pages/IndonesiaPage';
 import EnglishPage from './pages/EnglishPage';
+import AboutPage from './pages/AboutPage';
 // import { searchMovie } from './services/Api';
 // import { useState } from 'react';
 
@@ -62,11 +63,13 @@ const App = () => {
               <Route path='/genres/science-fiction' element={<ScienceFictionPage />} />
               <Route path='/genres/romance' element={<RomancePage />} />
               <Route path='/genres/drama' element={<DramaPage />} />
-              <Route path='/genres/filter' element={<FilterPage />} />
+              <Route path='/filter' element={<FilterPage />} />
               <Route path='/language/indonesian' element={<IndonesiaPage />} />
               <Route path='/language/english' element={<EnglishPage />} />
             </Route>
             <Route path='detail/:id' element={<Detail />} />
+            <Route path='/about' element={<AboutPage />}></Route>
+            <Route path='/tv' element={<AboutPage />}></Route>
           </Route>
         </Routes>
       </Router>

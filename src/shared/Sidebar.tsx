@@ -15,7 +15,7 @@ const Sidebar = () => {
                         <NavLink className="option" to={'/genres/science-fiction'}>Sci-Fi</NavLink>
                         <NavLink className="option" to={'/genres/romance'}>Romance</NavLink>
                         <NavLink className="option" to={'/genres/drama'}>Drama</NavLink>
-                        <NavLink className="option" to={'/genres/filter'}>More..</NavLink>
+                        <NavLink className="option" to={'/filter'}>More..</NavLink>
                 </div>
                 <div className="list">
                     <h2>Language</h2>

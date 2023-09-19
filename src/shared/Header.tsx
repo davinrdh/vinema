@@ -49,7 +49,8 @@ const Header = () => {
                 navbarScroll
               >
                 <Nav.Link onClick={() => navigate('/')}>Home</Nav.Link>
-                <Nav.Link onClick={() => navigate('/')}>About Us</Nav.Link>
+                {/* <Nav.Link onClick={() => navigate('/tv')}>TV Shows</Nav.Link> */}
+                <Nav.Link onClick={() => navigate('/about')}>About Us</Nav.Link>
                 {/* <Nav.Link href="#action2">Link</Nav.Link> */}
               </Nav>
             </div>

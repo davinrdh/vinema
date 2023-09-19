@@ -29,6 +29,7 @@
         // position: relative;
         overflow: hidden;
         color: whitesmoke;
+        transition: .2s ease;
 
         img {
             border-radius: 8px;
@@ -76,13 +77,14 @@
             top: -30px;
         }
 
-        &:hover {
+        // &:hover {
+        //     transform: scale(1.05);
 
-            .hover-effect {
-                opacity: 1;
-                // top: -10px;
-            }
-        }
+        //     .hover-effect {
+        //         opacity: 1;
+        //         // top: -10px;
+        //     }
+        // }
 
         .overlay {
             position: absolute;

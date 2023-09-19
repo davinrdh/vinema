@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <>
 
-        <Footers>COPYRIGHT&#169;2023 <Brand>VINEMA.<Red>I</Red>D</Brand></Footers>
+        <Footers>COPYRIGHT&#169;2023 BY <Brand>VINEMA.<Red>I</Red>D</Brand></Footers>
     
     </>
   )

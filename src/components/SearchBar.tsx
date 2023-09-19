@@ -22,7 +22,7 @@ const SearchBar = () => {
 
     const renderMovie = () => {
         return movie?.map((data: any, k: number) => (
-
+            <>
             <div className="result" key={k} onClick={() => NavigateToPage(data)}>
                 <img src={`${import.meta.env.VITE_APP_BASEIMG}/${data.poster_path}`} alt="" />
                 <div>
@@ -30,6 +30,8 @@ const SearchBar = () => {
                     <div className="rate">{data.vote_average} <i className="bi bi-star-fill"></i></div>
                 </div>
             </div>
+            <hr />
+            </>
         ))
     }
 
@@ -44,7 +46,7 @@ const SearchBar = () => {
             if (searchInput !== "") {
                 setIsLoading(true)
                 const query = await searchMovie(searchInput)
-                console.log("Render Movie")
+                // console.log("Render Movie")
                 setMovie(query)
             }
         }, 1500)
@@ -56,7 +58,7 @@ const SearchBar = () => {
 
         return () => {
             setIsLoading(false)
-            console.log("Cancel Timeout")
+            // console.log("Cancel Timeout")
             clearTimeout(debounce)
         }
     }, [searchInput])

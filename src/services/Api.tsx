@@ -51,8 +51,9 @@ export const getCredits = async (id: any) => {
     return credits?.data?.cast
 }
 
-export const getFilter = async (query: any) => {
-    const filter = await axios.get(`${baseUrl}/discover/movie?${query}&api_key=${apiKey}`)
+export const getFilter = async (page?: any, sort?: any, genre?: any, language?: any ) => {
+    const queryParams = `${page ?? ''}${sort ?? ''}${genre ?? ''}${language ?? ''}`;
+    const filter = await axios.get(`${baseUrl}/discover/movie?${queryParams}&api_key=${apiKey}`)
     return filter?.data?.results
 }
 

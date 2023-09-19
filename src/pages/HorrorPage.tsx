@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getFilter, getSort } from '../services/Api'
-import '../styles/ActionPage.scss'
+import '../styles/MoviePage.scss'
 import Skeleton from 'react-loading-skeleton'
 import { Form } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'

@@ -1,10 +1,9 @@
 import { Fragment, useEffect, useState } from 'react'
-import { Form, FormSelect } from 'react-bootstrap'
+import { FormSelect } from 'react-bootstrap'
 import styled from 'styled-components'
 import { getFilter } from '../services/Api'
 import Skeleton from 'react-loading-skeleton'
 import '../styles/CardMovie.scss'
-import { useNavigate } from 'react-router-dom'
 import CardMovie from '../components/CardMovie'
 
 const FilterPage = () => {
@@ -38,7 +37,6 @@ const FilterPage = () => {
       })
     }
   }, [genre1, genre2, language])
-
 
   const renderCard = () => {
     return movie?.map((movie: any, i: number) => {

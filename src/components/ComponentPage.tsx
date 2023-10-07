@@ -9,7 +9,7 @@ import CardMovie from '../components/CardMovie'
 const ComponentPage = ({genres, TitlePage}: {genres: string, TitlePage: string}) => {
   const [movie, setMovie] = useState()
   const [emulator, setEmulator] = useState()
-  const [sort, setSort] = useState('popularity.desc')
+  // const [sort, setSort] = useState('popularity.desc')
   const [page, setPage] = useState(1)
 
   const getMovie = (pageNumber?: any, sortBy?: any) => {

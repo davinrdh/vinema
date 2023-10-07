@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom'
 import CardMovie from '../components/CardMovie'
 
 const FilterPage = () => {
-  const navigate = useNavigate()
   const [movie, setMovie] = useState()
   const [genre1, setGenre1] = useState()
   const [genre2, setGenre2] = useState()
@@ -16,7 +15,6 @@ const FilterPage = () => {
   const [emulator, setEmulator] = useState()
 
   useEffect(() => {
-    const img = movie
     const emt = movie
     setTimeout(() => {
       setEmulator(emt)

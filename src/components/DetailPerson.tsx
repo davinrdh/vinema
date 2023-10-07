@@ -2,12 +2,12 @@
 import { useEffect, useState } from 'react'
 import { getPersonDetail, getPersonMovie, getSocmed } from '../services/Api'
 import { useParams } from 'react-router-dom'
-import { Button, Card, Col, Container, Row } from 'react-bootstrap'
+import { Button, Col, Container, Row } from 'react-bootstrap'
 import styled from 'styled-components'
 
 export default function DetailPerson() {
   const [person, setPerson] = useState<any>()
-  const [movie, setMovie] = useState<any>()
+  // const [movie, setMovie] = useState<any>()
   const [viewMore, setViewMore] = useState<boolean>(false)
   const [socmed, setSocmed] = useState()
 
@@ -28,7 +28,7 @@ export default function DetailPerson() {
       getPersonMovie(id).then((res) => {
         setMovie(res)
       })
-    } catch(error) {
+    } catch (error) {
       console.log(error)
     }
   }
@@ -42,37 +42,40 @@ export default function DetailPerson() {
     })
   }, [])
 
-  const renderSosmed = () => (
-    <div className="d-flex justify-content-center mt-3 fs-3">
-      <div className='d-flex gap-3'>
-        <BadgeRounded>
-          <a href={`https://instagram.com/${socmed?.instagram_id}`} target='_blank'>
-            <i className="bi bi-instagram"></i>
-          </a>
-        </BadgeRounded>
-        <BadgeRounded>
-          <a href={`https://x.com/${socmed?.twitter_id}`} target='_blank'>
-            <i className="bi bi-twitter"></i>
-          </a>
-        </BadgeRounded>
-        <BadgeRounded>
-          <a href={`https://facebook.com/${socmed?.facebook_id}`} target='_blank'>
-            <i className="bi bi-facebook"></i>
-          </a>
-        </BadgeRounded>
-        <BadgeRounded>
-          <a href={`https://youtube.com/@${socmed?.youtube_id}`} target='_blank'>
-            <i className="bi bi-youtube"></i>
-          </a>
-        </BadgeRounded>
-        <BadgeRounded>
-          <a href={`https://tiktok.com/@${socmed?.tiktok_id}`} target='_blank'>
-            <i className="bi bi-tiktok"></i>
-          </a>
-        </BadgeRounded>
+
+  const renderSosmed = () => {
+    return (
+      <div className="d-flex justify-content-center mt-3 fs-3">
+        <div className='d-flex gap-3'>
+          <BadgeRounded>
+            <a href={`https://instagram.com/${socmed?.instagram_id}`} target='_blank'>
+              <i className="bi bi-instagram"></i>
+            </a>
+          </BadgeRounded>
+          <BadgeRounded>
+            <a href={`https://x.com/${socmed?.twitter_id}`} target='_blank'>
+              <i className="bi bi-twitter"></i>
+            </a>
+          </BadgeRounded>
+          <BadgeRounded>
+            <a href={`https://facebook.com/${socmed?.facebook_id}`} target='_blank'>
+              <i className="bi bi-facebook"></i>
+            </a>
+          </BadgeRounded>
+          <BadgeRounded>
+            <a href={`https://youtube.com/@${socmed?.youtube_id}`} target='_blank'>
+              <i className="bi bi-youtube"></i>
+            </a>
+          </BadgeRounded>
+          <BadgeRounded>
+            <a href={`https://tiktok.com/@${socmed?.tiktok_id}`} target='_blank'>
+              <i className="bi bi-tiktok"></i>
+            </a>
+          </BadgeRounded>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 
   const renderPersonalInfo = () => (
     <div className='mt-3'>

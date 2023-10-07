@@ -2,16 +2,13 @@
     position: absolute;
     z-index: -1;
     width: 100%;
-    // height: 100%;
     left: 0;
     top: -20%;
-    background-color: #2B2A4C;
+    background-color: var(--secondary);
 
     img {
         width: 100%;
         height: 750px;
-        // filter: blur(3px);
-        // background-color: #2B2A4C;
     }
 }
 
@@ -31,25 +28,22 @@
 .detail {
     display: flex;
     margin: 7rem 0 5rem 0;
+    color: whitesmoke;
 
     .img {
-        // min-width: 30%;
-        // background-color: black;
         .card {
             width: 300px;
             height: 450px;
             border-radius: 8px;
             border: 1px solid whitesmoke;
-            
+
             img {
                 border-radius: 8px;
             }
         }
-
     }
 
     .desc {
-        // background-color: grey;
         margin-left: 3em;
         font-weight: 500;
 
@@ -67,24 +61,17 @@
             font-size: 25px;
             margin-bottom: 10px;
         }
-        
+
         p {
             margin: 0;
-            
         }
 
         .rate {
             margin-bottom: 10px;
         }
-        
-        // .release {
-        //     margin-bottom: 10px;
-        // }
-        
 
         .box-genre {
             padding: 5px;
-            // background-color: #3F2E3E;
             border-radius: 7px;
             border: 1px solid whitesmoke;
         }
@@ -112,21 +99,12 @@
                 }
             }
         }
-
-
     }
 }
 
-
 .loading {
     display: flex;
-    // position: absolute;
-    // margin-left: 45%;
-    // margin-top: 20%;
-    // margin: auto;
     justify-content: center;
-    // align-items: center;
-    // height: 100vh;
 }
 
 .bi-star-fill {
@@ -135,11 +113,8 @@
 
 .trailer {
     position: relative;
-    
+
     iframe {
-        // top: 30%;
-        // width: 800px;
-        // height: 500px;
         position: absolute;
         z-index: 1;
     }
@@ -153,9 +128,8 @@
     font-weight: 600;
     margin-top: 10px;
     margin-bottom: 10px;
-    transition: all .5s;
+    transition: all 0.5s;
     padding: 0;
-
 }
 
 .vertikal {
@@ -171,10 +145,14 @@
     overflow-y: hidden;
     overflow-x: auto;
     margin: 1rem 0;
-    // margin-top: 2rem;
-    // flex-direction: row;
-    
-    // flex-wrap: wrap;
+
+    a {
+        color: var(--white) !important;
+
+        &:hover {
+            color: red !important;
+        }
+    }
 
     .box-movie {
         min-width: 200px;
@@ -183,13 +161,12 @@
         text-align: center;
         margin: 10px;
         cursor: pointer;
-        transition: .3s ease;
-        // margin-bottom: 10px;
+        transition: 0.3s ease;
 
         &:hover {
             transform: scale(1.05);
         }
-        
+
         img {
             border-radius: 8px;
             min-height: 300px;
@@ -197,27 +174,27 @@
             object-fit: cover;
         }
     }
-    
-    .box-cast {
-        min-width: 150px;
-        height: 320px;
-        background-color: #2B2A4C;
-        color: whitesmoke;
-        margin: 10px;
-        text-align: center;
-        overflow-y: hidden;
+}
 
-        p {
-            margin: 0;
-        }
-        
+.box-cast {
+    min-width: 150px;
+    height: 320px;
+    background-color: transparent;
+    color: whitesmoke;
+    margin: 10px;
+    text-align: center;
+    overflow-y: hidden;
 
-        .img-cast {
-            height: 200px;
-            width: 150px;
-            margin-bottom: 5px;
-            object-fit: cover;
-        }
+    p {
+        margin: 0;
+    }
+
+    .img-cast {
+        height: 200px;
+        width: 150px;
+        margin-bottom: 5px;
+        border-radius: 8px;
+        object-fit: cover;
     }
 }
 
@@ -229,12 +206,8 @@
     font-size: 12px;
 
     .production {
-        // min-width: 100px;
-        // padding: 20px;
         gap: 1rem;
-        // background-color: #2B2A4C;
         border-radius: 8px;
-        // border: 1px solid whitesmoke;
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -242,7 +215,6 @@
         justify-content: space-between;
         text-align: center;
 
-    
         img {
             width: 5q0px;
         }

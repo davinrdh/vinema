@@ -1,19 +1,15 @@
 .rightbar {
     margin-top: 72px;
     width: 200px;
-    // overflow: hidden;
     min-height: 100vh;
-    // background-color: rgb(0, 0, 0, 0.9);
-    // background-color: #331D2C;
-    background-color: #3F2E3E;
+    background-color: var(--background);
+    border-left: 1px solid var(--secondary);
     position: fixed;
-    // left: 90%;
     right: 0;
     top: 0;
     overflow: auto;
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     gap: 20px;
 
     .card {
@@ -27,9 +23,7 @@
     h2 {
         font-size: 16px;
         margin-top: 2.1rem;
-        // margin-left: 15px;
-        // color: rgb(245, 245, 245, 0.7);
-        color: whitesmoke;
+        color: var(--white);
     }
 
     button {

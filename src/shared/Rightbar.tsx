@@ -124,13 +124,9 @@ const Rightbar = () => {
                 <div className="carousel" key={key}>
                     <div className="carousel">
                         { emulatorUp && 
-                        <div className="movie card" onClick={() => navigator(`/detail/${movie.id}`)}>
+                        <div className="movie card" onClick={() => navigator(`/movie/${movie.id}`)}>
                             <img src={`${import.meta.env.VITE_APP_BASEIMG}/${movie?.poster_path}`} alt="" />
                         </div>}
-
-                        {/* {!emulatorUp && 
-                        <Skeleton count={1} width="150px" height="225px" />
-                        } */}
                     </div>
                 </div>
             )
@@ -143,13 +139,9 @@ const Rightbar = () => {
                 <div className="carousel" key={key}>
                     <div className="carousel">
                     { emulatorNow && 
-                        <div className="movie card" onClick={() => navigator(`/detail/${movie.id}`)}>
+                        <div className="movie card" onClick={() => navigator(`/movie/${movie.id}`)}>
                             <img src={`${import.meta.env.VITE_APP_BASEIMG}/${movie?.poster_path}`} alt="" />
                         </div>}
-
-                        {/* {!emulatorNow && 
-                        <Skeleton count={1} width="150px" height="225px" className='mx-auto'/>
-                        } */}
                     </div>
                 </div>
             )
@@ -160,7 +152,6 @@ const Rightbar = () => {
     return (
         <>
             <div className="rightbar">
-                {/* <div> */}
                 <div>
                     <h2 className='text-center'>Now Playing</h2>
                     <Slider {...settings2}>
@@ -173,7 +164,6 @@ const Rightbar = () => {
                     <Slider {...settings1}>
                         {renderUpcoming()}
                     </Slider>
-                    {/* </div> */}
                 </div>
             </div>
         </>

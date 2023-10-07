@@ -15,7 +15,7 @@ const SearchBar = () => {
 
 
     const NavigateToPage = (data: any) => {
-        navigate(`/detail/${data.id}`)
+        navigate(`/movie/${data.id}`)
         window.location.reload()
     }
 
@@ -25,12 +25,12 @@ const SearchBar = () => {
             <>
             <div className="result" key={k} onClick={() => NavigateToPage(data)}>
                 <img src={`${import.meta.env.VITE_APP_BASEIMG}/${data.poster_path}`} alt="" />
-                <div>
-                    <div className="title ">{data.title}</div>
+                <div className="ms-2">
+                    <div className="title">{data.title}</div>
+                    <div className="text-truncate" style={{maxWidth: '390px', fontSize: '14px', color: 'var(--white)'}}>{data.overview}</div>
                     <div className="rate">{data.vote_average} <i className="bi bi-star-fill"></i></div>
                 </div>
             </div>
-            <hr />
             </>
         ))
     }

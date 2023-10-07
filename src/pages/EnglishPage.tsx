@@ -4,6 +4,7 @@ import '../styles/MoviePage.scss'
 import Skeleton from 'react-loading-skeleton'
 import { Form } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
+import CardMovie from '../components/CardMovie'
 
 const EnglishPage = () => {
   const navigate = useNavigate()
@@ -41,15 +42,8 @@ const EnglishPage = () => {
       return (
         <>
           {emulator &&
-            <div key={i} onClick={() => navigate(`/detail/${action.id}`)}>
-              <div className="action card" onClick={() => (`/detail/${action.id}`)}>
-                <div className="release">{action?.release_date.slice(0, 4)}</div>
-                {/* <img src={`${import.meta.env.VITE_APP_BASEIMG}/${action?.poster_path}`} alt="" /> */}
-                <img src={`${action?.poster_path == null  ? '/placeholder.jpg' : import.meta.env.VITE_APP_BASEIMG + action?.poster_path}`}  alt="" className={action ? 'place-holder' : ''}/>
-                <div className="action-title text-truncate">{action.title}</div>
-                <div className="action-rate"><i className="bi bi-star-fill"></i> {action.vote_average} </div>
-              </div>
-            </div>}
+            <CardMovie movie={action} />
+            }
           {
             !emulator &&
             <Skeleton count={1} width="170px" height="300px" />

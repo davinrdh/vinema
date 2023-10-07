@@ -1,9 +1,10 @@
+/* eslint-disable no-constant-condition */
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.scss'
-// import Header from './shared/Header';
 import Home from './pages/Home';
-import Detail from './pages/Detail';
+import Detail from './components/Detail';
 import ActionPage from './pages/ActionPage';
 import NavBarLayout from './routing/NavbarLayout';
 import SidebarLayout from './routing/SidebarLayout';
@@ -17,40 +18,16 @@ import FilterPage from './pages/FilterPage';
 import IndonesiaPage from './pages/IndonesiaPage';
 import EnglishPage from './pages/EnglishPage';
 import AboutPage from './pages/AboutPage';
-// import { searchMovie } from './services/Api';
-// import { useState } from 'react';
+import DetailCast from './components/DetailCast';
+import DetailPerson from './components/DetailPerson';
+
 
 const App = () => {
-
-
-  // const [movies, setMovies] = useState<any>()
-
-  // useEffect(() => {
-  //   getMovie().then((res) => {
-  //     setMovies(res)
-  //   })
-  // }, [])
-
-
-
-  // const MovieList = () => {
-  //   return movies?.map((movie: any, i: number) => (
-  //     <CardMovie movie={movie} key={i} />
-  //   ))
-  // }
-
-  // const search = async (q: any) => {
-  //   if (q.length > 3) {
-  //     const query = await searchMovie(q)
-  //     setMovies(query.results)
-  //   }
-  // }
-
-
   return (
     <>
       {/* <Header/> */}
       {/* <Header handleSearch={(value: string) => search(value)} /> */}
+      <div>
       <Router>
         <Routes>
           <Route path='/' element={<NavBarLayout />}>
@@ -67,12 +44,15 @@ const App = () => {
               <Route path='/language/indonesian' element={<IndonesiaPage />} />
               <Route path='/language/english' element={<EnglishPage />} />
             </Route>
-            <Route path='detail/:id' element={<Detail />} />
+            <Route path='movie/:id' element={<Detail />} />
+            <Route path='movie/:id/cast' element={<DetailCast />} />
+            <Route path='person/:id' element={<DetailPerson />} />
             <Route path='/about' element={<AboutPage />}></Route>
             <Route path='/tv' element={<AboutPage />}></Route>
           </Route>
         </Routes>
       </Router>
+      </div>
 
     </>
   )

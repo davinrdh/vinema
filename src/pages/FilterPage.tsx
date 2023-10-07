@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Form, FormSelect } from 'react-bootstrap'
 import styled from 'styled-components'
 import { getFilter } from '../services/Api'
 import Skeleton from 'react-loading-skeleton'
 import '../styles/CardMovie.scss'
 import { useNavigate } from 'react-router-dom'
+import CardMovie from '../components/CardMovie'
 
 const FilterPage = () => {
   const navigate = useNavigate()
@@ -44,23 +45,15 @@ const FilterPage = () => {
   const renderCard = () => {
     return movie?.map((movie: any, i: number) => {
       return (
-        <>
+        <Fragment key={i}>
           {emulator &&
-            <div className="movie card" onClick={() => navigate(`/detail/${movie.id}`)} key={i}>
-              <div className="release">{movie?.release_date.slice(0, 4)}</div>
-              <img src={`${import.meta.env.VITE_APP_BASEIMG}/${movie?.poster_path}`} alt="" />
-              <div className="movie-title text-truncate">{movie.title}</div>
-              <div className="movie-rate"><i className="bi bi-star-fill"></i> {movie.vote_average} </div>
-              {/* <div className="hover-effect">
-              {movie.title}
-            </div> */}
-            </div>
+            <CardMovie movie={movie} />
           }
           {
             !emulator &&
             <Skeleton count={1} width="170px" height="300px" />
           }
-        </>
+        </Fragment>
       )
     })
   }
@@ -165,8 +158,8 @@ const HeaderStyled = styled.div`
 `
 
 const FormSelectCustom = styled(FormSelect)`
-  background-color: #3F2E3E;
+  background-color: var(--secondary);
   width: 340px;
-  color: whitesmoke;
+  color: var(--white);
   border: none;
 `

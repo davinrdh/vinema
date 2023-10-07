@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { getCredits, getMovieId, getSimilar, getVideos } from "../services/Api"
-import { useLocation, useNavigate, useParams } from "react-router-dom"
-import { Container, Spinner } from "react-bootstrap"
+import { NavLink, useLocation, useNavigate, useParams } from "react-router-dom"
+import { Button, Container, Spinner } from "react-bootstrap"
 import '../styles/Detail.scss'
+import ModalCast from "./ModalCast"
 
 const Detail = () => {
   const location = useLocation()
@@ -13,66 +14,48 @@ const Detail = () => {
   const [cast, setCast] = useState<any>()
   const [similar, setSimilar] = useState<any>()
   // const [isLoading, setIsLoading] = useState(false)
+  const [modal, setModal] = useState(false)
 
   const { id } = useParams()
 
-  useEffect(()=> {
+  useEffect(() => {
     window.scrollTo(0, 0)
-  },[location.pathname])
+  }, [location.pathname])
+
+  const getMovie = () => {
+    try {
+      getMovieId(id).then((res) => {
+        setMovieDetail(res)
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  
 
   useEffect(() => {
-    getMovieId(id).then((res) => {
-      setMovieDetail(res)
-      console.log(res)
-    })
-  }, [])
-
-  useEffect(() => {
+    getMovie()
     getVideos(id).then((res) => {
       setMovieTrailer(res)
     })
-  }, [])
 
-  useEffect(() => {
     getCredits(id).then((res) => {
       setCast(res)
-      // console.log(res)
     })
-  }, [])
-
-  useEffect(() => {
     getSimilar(id).then((res) => {
       setSimilar(res)
-      console.log(res)
     })
   }, [])
 
   const keyVideo = movieTrailer?.find(
     (el: any) => el.type === "Trailer"
-  ).key
+  )
 
   const handleShow = () => {
     setShow(!show)
   }
 
-
-  // const keyVideo = cek.key
-  // const urlVideo = `youtube.com/watch?v=${keyVideo}`
-
-  // console.log(urlVideo)
-
-
-  // const renderTrailer = () => {
-  //   return (
-  //     // <div>{movieTrailer?.find((i: any) => {
-  //     //   i.type == "Trailer"
-  //     // })}
-  //     // </div>
-  //     <div>{`https://www.youtube.com/embed/${cek}`}</div>
-  //   )
-  // }
-
-  const urlVideo = `https://www.youtube.com/embed/${keyVideo}`
+  const urlVideo = `https://www.youtube.com/embed/${keyVideo === undefined ? '' : keyVideo.key}`
 
   // const DateConverter = () => {
   //   return movieDetail?.release_date.moment("YYYY-MM-DD").format("DD-MM-YYYY")
@@ -87,7 +70,7 @@ const Detail = () => {
   const renderCast = () => {
     const LimitCast = cast?.slice(0, 10)
     return LimitCast?.map((data: any, key: number) => (
-      <div className="box-cast card" key={key}>
+      <div className="box-cast card" key={key} style={{ color: 'var(--white)' }}>
         <img src={`${data?.profile_path == null ? '/placeholder.jpg' : import.meta.env.VITE_APP_BASEIMG + data?.profile_path}`} alt="" className="img-cast" />
         <p className="fw-bold">{data?.original_name}</p>
         <p>as</p>
@@ -98,22 +81,22 @@ const Detail = () => {
 
   const renderSimilar = () => {
     return similar?.map((data: any, key: number) => (
-      <div className="box-movie card" key={key} onClick={() => detailSimilar(data)}>
+      <div className="box-movie card" key={key} onClick={() => detailSimilar(data)} style={{ background: 'none' }}>
         <img src={`${data?.poster_path == null ? '/placeholder.jpg' : import.meta.env.VITE_APP_BASEIMG + data?.poster_path}`} alt="" className="img-cast" />
-        <div className="text-truncate">{data.title}</div>
+        <div className="text-truncate" style={{ color: 'var(--white)' }}>{data.title}</div>
       </div>
     ))
   }
 
 
-  const renderProduction = () => {
-    return movieDetail?.production_companies.map((production: any, i: number) => (
-      <div key={i} className="production">
-        <img src={`${production?.logo_path == null ? '/placeholder.jpg' : import.meta.env.VITE_APP_BASEIMG + production?.logo_path}`} alt="" className="img-cast" />
-        {production.name}
-      </div>
-    ))
-  }
+  // const renderProduction = () => {
+  //   return movieDetail?.production_companies.map((production: any, i: number) => (
+  //     <div key={i} className="production">
+  //       <img src={`${production?.logo_path == null ? '/placeholder.jpg' : import.meta.env.VITE_APP_BASEIMG + production?.logo_path}`} alt="" className="img-cast" />
+  //       {production.name}
+  //     </div>
+  //   ))
+  // }
 
 
   const renderMovieDetail = () => {
@@ -158,7 +141,7 @@ const Detail = () => {
 
           {show && (
             <div className="trailer">
-              <iframe width="560" height="315" src={urlVideo} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+              <iframe width="560" height="315" src={keyVideo === undefined ? '' : urlVideo} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
             </div>
           )}
           {/* <div className="list-production">
@@ -174,7 +157,7 @@ const Detail = () => {
       {/* <Header /> */}
       <Container>
         <div className="bg-img">
-          <img src={`${import.meta.env.VITE_APP_BASEIMGORI}/${movieDetail?.backdrop_path}`} alt="" className="lighten" />
+          <img src={`${import.meta.env.VITE_APP_BASEIMGORI}/${movieDetail?.backdrop_path === undefined ? "" : movieDetail?.backdrop_path}`} alt="" className="lighten" />
           <div className="lighten"></div>
           <div className="fade"></div>
         </div>
@@ -196,6 +179,9 @@ const Detail = () => {
         </div>
         <div className="cast">
           {renderCast()}
+          <NavLink to={`/movie/${id}/cast`} className={'navlink d-flex align-items-center text-decoration-none'}>
+            <Button variant="" className="text-white">See more</Button>
+          </NavLink>
         </div>
 
         <h2 className="text-center mt-5">Similar Movie</h2>

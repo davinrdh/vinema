@@ -6,10 +6,9 @@ import { useEffect, useState } from "react";
 
 interface ICardMovie {
   movie: any,
-  handleMouseOver: any
 }
 
-const CardMovie = ({ movie, handleMouseOver }: ICardMovie) => {
+const CardMovie = ({ movie }: ICardMovie) => {
   const navigate = useNavigate()
   const [emulatorImg, setEmulatorImg] = useState('')
   const [emulator, setEmulator] = useState('')
@@ -24,12 +23,10 @@ const CardMovie = ({ movie, handleMouseOver }: ICardMovie) => {
     }, 1 * 1000)
   })
 
-
-
   return (
     <>
       {emulator &&
-        <div className="movie card" onClick={() => navigate(`/detail/${movie.id}`)} onMouseOver={() => handleMouseOver(movie)}>
+        <div className="movie card" onClick={() => navigate(`/movie/${movie.id}`)}>
           <div className="release">{movie?.release_date.slice(0, 4)}</div>
           {emulatorImg &&
             <img src={`${import.meta.env.VITE_APP_BASEIMG}/${movie?.poster_path}`} alt="" />}
@@ -43,9 +40,6 @@ const CardMovie = ({ movie, handleMouseOver }: ICardMovie) => {
           </div>
           <div className="movie-title text-truncate">{movie.title}</div>
           <div className="movie-rate"><i className="bi bi-star-fill"></i> {movie.vote_average} </div>
-          {/* <div className="hover-effect">
-            {movie.title}
-          </div> */}
         </div>
       }
       {

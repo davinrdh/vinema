@@ -1,11 +1,9 @@
 .sidebar {
-    // z-index: -1;
     margin-top: 72px;
     width: 200px;
-    // padding: 0 20px;
     min-height: 100vh;
-    // background-color: #331D2C;
-    background-color: rgb(0, 0, 0, 0.9);
+    background-color: var(--background);
+    border-right: 1px solid var(--secondary);
     display: flex;
     flex-direction: column;
 
@@ -13,37 +11,36 @@
         font-size: 16px;
         margin-top: 2.1rem;
         margin-left: 15px;
-        // color: rgb(245, 245, 245, 0.7);
-        color: whitesmoke;
+        color: var(--white);
     }
 
     a {
         padding: 10px 25px;
         display: block;
-        // width: 100%;
         cursor: pointer;
-        color: rgb(245, 245, 245, 0.7);
+        color: var(--white);
         font-size: 14px;
         text-decoration: none;
-
-        // &:active {
-        //     color: red;
-        // }
 
         &.active {
             color: red;
         }
     }
     .option {
-        // padding: 15px 124px 15px 30px;
         cursor: pointer;
-        color: rgb(245, 245, 245, 0.7);
+        color: var(--white);
         font-size: 14px;
 
         &:hover {
-            background-color: rgba(76, 46, 67, 0.3);
+            background-color: var(--black-500);
         }
     }
 }
+
+@media screen and (max-width: 900px) {
+    .desktop {
+      display: none;
+    }
+  }
 
 

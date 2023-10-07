@@ -70,7 +70,7 @@ const Detail = () => {
   const renderCast = () => {
     const LimitCast = cast?.slice(0, 10)
     return LimitCast?.map((data: any, key: number) => (
-      <div className="box-cast card" key={key} style={{ color: 'var(--white)' }}>
+      <div className="box-cast card" key={key} style={{ color: 'var(--white)' }} onClick={() => navigate(`/person/${data?.id}`)}>
         <img src={`${data?.profile_path == null ? '/placeholder.jpg' : import.meta.env.VITE_APP_BASEIMG + data?.profile_path}`} alt="" className="img-cast" />
         <p className="fw-bold">{data?.original_name}</p>
         <p>as</p>

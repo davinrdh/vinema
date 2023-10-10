@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react'
-import { getPersonDetail, getPersonMovie, getSocmed } from '../services/Api'
+import { getPersonDetail, getSocmed } from '../services/Api'
 import { useParams } from 'react-router-dom'
 import { Button, Col, Container, Row } from 'react-bootstrap'
 import styled from 'styled-components'
@@ -23,19 +22,19 @@ export default function DetailPerson() {
     }
   }
 
-  const getMovie = (id: any) => {
-    try {
-      getPersonMovie(id).then((res) => {
-        setMovie(res)
-      })
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // const getMovie = (id: any) => {
+  //   try {
+  //     getPersonMovie(id).then((res) => {
+  //       setMovie(res)
+  //     })
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
   useEffect(() => {
     getDetail(id)
-    getMovie(id)
+    // getMovie(id)
 
     getSocmed(id).then((res) => {
       setSocmed(res)

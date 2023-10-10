@@ -3,7 +3,7 @@ import { getCredits, getMovieId, getSimilar, getVideos } from "../services/Api"
 import { NavLink, useLocation, useNavigate, useParams } from "react-router-dom"
 import { Button, Container, Spinner } from "react-bootstrap"
 import '../styles/Detail.scss'
-import ModalCast from "./ModalCast"
+// import ModalCast from "./ModalCast"
 
 const Detail = () => {
   const location = useLocation()
@@ -14,7 +14,7 @@ const Detail = () => {
   const [cast, setCast] = useState<any>()
   const [similar, setSimilar] = useState<any>()
   // const [isLoading, setIsLoading] = useState(false)
-  const [modal, setModal] = useState(false)
+  // const [modal, setModal] = useState(false)
 
   const { id } = useParams()
 

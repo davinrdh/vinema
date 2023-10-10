@@ -118,8 +118,7 @@ const Rightbar = () => {
     };
 
     const renderUpcoming = () => {
-        return upcomings?.map((movie: any, key: number) => {
-            return (
+        return upcomings?.map((movie: any, key: number) => (
                 <div className="carousel" key={key}>
                     <div className="carousel">
                         { emulatorUp && 
@@ -129,7 +128,7 @@ const Rightbar = () => {
                     </div>
                 </div>
             )
-        })
+        )
     }
 
     const renderNowPlaying = () => {

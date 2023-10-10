@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState, Fragment } from 'react'
 import { getFilter } from '../services/Api'
 import '../styles/moviePage.scss'

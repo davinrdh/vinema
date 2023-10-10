@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getPersonDetail } from '../services/Api'
+import { getPersonDetail, getSocmed } from '../services/Api'
 import { useParams } from 'react-router-dom'
 import { Button, Col, Container, Row } from 'react-bootstrap'
 import styled from 'styled-components'
@@ -8,7 +8,7 @@ export default function DetailPerson() {
   const [person, setPerson] = useState<any>()
   // const [movie, setMovie] = useState<any>()
   const [viewMore, setViewMore] = useState<boolean>(false)
-  // const [socmed, setSocmed] = useState()
+  const [socmed, setSocmed] = useState<any>()
 
   const { id } = useParams()
 
@@ -36,45 +36,45 @@ export default function DetailPerson() {
     getDetail(id)
     // getMovie(id)
 
-    // getSocmed(id).then((res) => {
-    //   setSocmed(res)
-    // })
+    getSocmed(id).then((res) => {
+      setSocmed(res)
+    })
   }, [])
 
 
-  // const renderSosmed = () => {
-  //   return (
-  //     <div className="d-flex justify-content-center mt-3 fs-3">
-  //       <div className='d-flex gap-3'>
-  //         <BadgeRounded>
-  //           <a href={`https://instagram.com/${socmed?.instagram_id}`} target='_blank'>
-  //             <i className="bi bi-instagram"></i>
-  //           </a>
-  //         </BadgeRounded>
-  //         <BadgeRounded>
-  //           <a href={`https://x.com/${socmed?.twitter_id}`} target='_blank'>
-  //             <i className="bi bi-twitter"></i>
-  //           </a>
-  //         </BadgeRounded>
-  //         <BadgeRounded>
-  //           <a href={`https://facebook.com/${socmed?.facebook_id}`} target='_blank'>
-  //             <i className="bi bi-facebook"></i>
-  //           </a>
-  //         </BadgeRounded>
-  //         <BadgeRounded>
-  //           <a href={`https://youtube.com/@${socmed?.youtube_id}`} target='_blank'>
-  //             <i className="bi bi-youtube"></i>
-  //           </a>
-  //         </BadgeRounded>
-  //         <BadgeRounded>
-  //           <a href={`https://tiktok.com/@${socmed?.tiktok_id}`} target='_blank'>
-  //             <i className="bi bi-tiktok"></i>
-  //           </a>
-  //         </BadgeRounded>
-  //       </div>
-  //     </div>
-  //   )
-  // }
+  const renderSosmed = () => {
+    return (
+      <div className="d-flex justify-content-center mt-3 fs-3">
+        <div className='d-flex gap-3'>
+          <BadgeRounded>
+            <a href={`https://instagram.com/${socmed?.instagram_id}`} target='_blank'>
+              <i className="bi bi-instagram"></i>
+            </a>
+          </BadgeRounded>
+          <BadgeRounded>
+            <a href={`https://x.com/${socmed?.twitter_id}`} target='_blank'>
+              <i className="bi bi-twitter"></i>
+            </a>
+          </BadgeRounded>
+          <BadgeRounded>
+            <a href={`https://facebook.com/${socmed?.facebook_id}`} target='_blank'>
+              <i className="bi bi-facebook"></i>
+            </a>
+          </BadgeRounded>
+          <BadgeRounded>
+            <a href={`https://youtube.com/@${socmed?.youtube_id}`} target='_blank'>
+              <i className="bi bi-youtube"></i>
+            </a>
+          </BadgeRounded>
+          <BadgeRounded>
+            <a href={`https://tiktok.com/@${socmed?.tiktok_id}`} target='_blank'>
+              <i className="bi bi-tiktok"></i>
+            </a>
+          </BadgeRounded>
+        </div>
+      </div>
+    )
+  }
 
   const renderPersonalInfo = () => (
     <div className='mt-3'>
@@ -133,7 +133,7 @@ export default function DetailPerson() {
           <Col md={4} className='d-flex justify-content-center'>
             <div>
               <img src={`${person?.profile_path == null ? '/default-avatar.svg' : import.meta.env.VITE_APP_BASEIMG + person?.profile_path}`} alt="" className="img-fluid rounded" />
-              {/* {renderSosmed()} */}
+              {renderSosmed()}
               {renderPersonalInfo()}
             </div>
           </Col>
@@ -174,19 +174,19 @@ const TruncateText = styled.p`
   }
 `
 
-// const BadgeRounded = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 40px;
-//   height: 40px;
-//   border-radius: 50%;
-//   background: var(--white);
+const BadgeRounded = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--white);
 
-//   i {
-//     color: var(--background);
-//   }
-// `
+  i {
+    color: var(--background);
+  }
+`
 
 const TextPersonal = styled.p`
   font-size: 16px;

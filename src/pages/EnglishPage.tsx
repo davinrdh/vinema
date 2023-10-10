@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { getFilter, getSort } from '../services/Api'
 import '../styles/MoviePage.scss'
 import Skeleton from 'react-loading-skeleton'
@@ -6,8 +6,8 @@ import { Form } from 'react-bootstrap'
 import CardMovie from '../components/CardMovie'
 
 const EnglishPage = () => {
-  const [action, setAction] = useState('')
-  const [emulator, setEmulator] = useState()
+  const [action, setAction] = useState<any>()
+  const [emulator, setEmulator] = useState<any>()
   const [sort, setSort] = useState('')
 
   useEffect(() => {
@@ -29,24 +29,25 @@ const EnglishPage = () => {
   console.log(sort)
 
   useEffect(() => {
-    const emt = action
+    const emt:any = action
     setTimeout(() => {
       setEmulator(emt)
     }, 1 * 1000)
   })
 
+
   const renderAction = () => {
-    return action && action?.map((action: any, i: number) => {
+    return action && action?.map((item: any, i: number) => {
       return (
-        <>
+        <Fragment key={i}>
           {emulator &&
-            <CardMovie movie={action} />
+            <CardMovie movie={item} />
             }
           {
             !emulator &&
             <Skeleton count={1} width="170px" height="300px" />
           }
-        </>
+        </Fragment>
       )
     })
   }

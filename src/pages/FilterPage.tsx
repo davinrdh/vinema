@@ -7,11 +7,11 @@ import '../styles/CardMovie.scss'
 import CardMovie from '../components/CardMovie'
 
 const FilterPage = () => {
-  const [movie, setMovie] = useState()
-  const [genre1, setGenre1] = useState()
-  const [genre2, setGenre2] = useState()
-  const [language, setLanguage] = useState()
-  const [emulator, setEmulator] = useState()
+  const [movie, setMovie] = useState<any>()
+  const [genre1, setGenre1] = useState<any>()
+  const [genre2, setGenre2] = useState<any>()
+  const [language, setLanguage] = useState<any>()
+  const [emulator, setEmulator] = useState<any>()
 
   useEffect(() => {
     const emt = movie

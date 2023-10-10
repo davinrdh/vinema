@@ -7,9 +7,9 @@ import { useNavigate } from 'react-router-dom'
 
 const IndonesiaPage = () => {
   const navigate = useNavigate()
-  const [action, setAction] = useState('')
-  const [emulator, setEmulator] = useState()
-  const [sort, setSort] = useState('')
+  const [action, setAction] = useState<any>()
+  const [emulator, setEmulator] = useState<any>()
+  const [sort, setSort] = useState<any>()
 
   useEffect(() => {
     getFilter(`with_original_language=id`).then((res) => {

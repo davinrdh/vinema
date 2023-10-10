@@ -8,10 +8,10 @@ import { useNavigate } from 'react-router-dom';
 
 const Rightbar = () => {
     const navigator = useNavigate()
-    const [upcomings, setUpcomings] = useState()
-    const [nowPlaying, setNowPlaying] = useState()
-    const [emulatorUp, setEmulatorUp] = useState()
-    const [emulatorNow, setEmulatorNow] = useState()
+    const [upcomings, setUpcomings] = useState<any>()
+    const [nowPlaying, setNowPlaying] = useState<any>()
+    const [emulatorUp, setEmulatorUp] = useState<any>()
+    const [emulatorNow, setEmulatorNow] = useState<any>()
 
     useEffect(() => {
         getUpcoming().then((res) => {

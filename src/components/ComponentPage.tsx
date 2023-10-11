@@ -1,8 +1,8 @@
 import { useEffect, useState, Fragment } from 'react'
 import { getFilter } from '../services/Api'
-import '../styles/moviePage.scss'
 import Skeleton from 'react-loading-skeleton'
 import CardMovie from '../components/CardMovie'
+import styled from 'styled-components'
 
 const ComponentPage = ({genres, TitlePage}: {genres: string, TitlePage: string}) => {
   const [movie, setMovie] = useState<any>()
@@ -79,7 +79,7 @@ const ComponentPage = ({genres, TitlePage}: {genres: string, TitlePage: string})
 
   return (
     <>
-      <div className='header'>
+      <Header>
         <h2 className='kategori'>{TitlePage}</h2>
         {/* <div className='d-flex gap-3'>
           <p>Sort By :</p>
@@ -90,15 +90,45 @@ const ComponentPage = ({genres, TitlePage}: {genres: string, TitlePage: string})
             <option value="primary_release_date.asc">Latest</option>
           </Form.Select>
         </div> */}
-      </div>
+      </Header>
       <div className='content'>
         {rendermovie()}
-        <div className="toggleUp fixed-bottom" onClick={handleToggleUp}>
+        <ToggleUp className="fixed-bottom" onClick={handleToggleUp}>
           <i className="bi bi-arrow-up-circle-fill"></i>
-        </div>
+        </ToggleUp>
       </div>
     </>
   )
 }
 
 export default ComponentPage
+
+const Header = styled.div`
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 120px;
+
+  p {
+      font-size: 14px;
+  }
+
+  .form-select {
+      width: 110px;
+      height: 30px;
+      font-size: 12px;
+      background-color: var(--secondary);
+      border: none;
+      color: var(--white);
+      
+      i {
+          color: whitesmoke;
+      }
+  }
+`
+
+const ToggleUp = styled.div`
+font-size: 40px;
+margin-left: 83%;
+cursor: pointer;
+`

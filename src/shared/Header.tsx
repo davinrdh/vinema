@@ -12,7 +12,7 @@ import { useEffect } from 'react';
 const Header = () => {
   // const [isTop, setIsTop] = useState(true)
 
-  const [theme, setTheme] = useLocalStorage('theme', 'dark' && 'theme' ? 'light' : 'dark')
+  const [theme, setTheme] = useLocalStorage('theme', 'dark' && 'theme' ? 'dark' : 'light')
 
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark'

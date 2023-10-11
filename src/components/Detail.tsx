@@ -62,7 +62,7 @@ const Detail = () => {
   // }
 
   const detailSimilar = (data: any) => {
-    navigate(`/detail/${data.id}`)
+    navigate(`/movie/${data.id}`)
     window.location.reload()
   }
 

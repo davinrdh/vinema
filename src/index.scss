@@ -16,8 +16,7 @@
 // }
 
 [theme-mode='dark'] {
-    --red: rgb(255, 0, 0);
-    // --secondary: 
+    --red: rgb(255, 0, 0); 
     --white: #f5f5f5;
     --background: #111219;
     --background-nav: #000000e6;
@@ -25,7 +24,8 @@
     --color-search: #f5f5f533;
     --black-500: #1b1d28;
     --background-search: #3f2e3e;
-    --strip: #363e49;
+    --strip: #2c3138bf;
+    --lighten: rgba(33, 32, 45, 0.7);
 }
 
 [theme-mode='light'] {
@@ -37,7 +37,8 @@
     --color-search: #111219a2;
     --black-500: rgb(255, 230, 230);
     --background-search: #ffffff;
-    --strip: #f2f2f2;
+    --strip: #f2f2f27a;
+    --lighten: rgba(177, 177, 177, 0.5);
 }
 
 

@@ -7,9 +7,10 @@ import styled from "styled-components";
 
 interface ICardMovie {
   movie: any,
+  showRating?: boolean
 }
 
-const CardMovie = ({ movie }: ICardMovie) => {
+const CardMovie = ({ movie, showRating = true }: ICardMovie) => {
   const navigate = useNavigate()
   const [emulatorImg, setEmulatorImg] = useState('')
   const [emulator, setEmulator] = useState('')
@@ -40,7 +41,7 @@ const CardMovie = ({ movie }: ICardMovie) => {
             <div className="movie-rate">{movie.vote_average} <i className="bi bi-star-fill"></i></div>
           </div>
           <div className="movie-title text-truncate">{movie.title}</div>
-          <div className="movie-rate"><i className="bi bi-star-fill"></i> {movie.vote_average} </div>
+          {showRating === true ? <div className="movie-rate"><i className="bi bi-star-fill"></i> {movie.vote_average} </div> : ''}
         </CardStyled>
       }
       {

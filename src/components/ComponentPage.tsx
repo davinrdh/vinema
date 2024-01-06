@@ -79,7 +79,7 @@ const ComponentPage = ({genres, TitlePage}: {genres: string, TitlePage: string})
 
   return (
     <>
-      <Header>
+      <Header className='content'>
         <h2 className='kategori'>{TitlePage}</h2>
         {/* <div className='d-flex gap-3'>
           <p>Sort By :</p>

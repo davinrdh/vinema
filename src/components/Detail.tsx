@@ -82,7 +82,7 @@ const Detail = () => {
   const renderSimilar = () => {
     return similar?.map((data: any, key: number) => (
       <div className="box-movie card" key={key} onClick={() => detailSimilar(data)} style={{ background: 'none' }}>
-        <img src={`${data?.poster_path == null ? '/placeholder.jpg' : import.meta.env.VITE_APP_BASEIMG + data?.poster_path}`} alt="" className="img-cast" />
+        <img src={`${data?.poster_path == null ? '/default-movie.png' : import.meta.env.VITE_APP_BASEIMG + data?.poster_path}`} alt="" className="img-cast" />
         <div className="text-truncate" style={{ color: 'var(--white)' }}>{data.title}</div>
       </div>
     ))
@@ -180,7 +180,7 @@ const Detail = () => {
         <div className="cast">
           {renderCast()}
           <NavLink to={`/movie/${id}/cast`} className={'navlink d-flex align-items-center text-decoration-none'}>
-            <Button variant="" className="text-white">See more</Button>
+            <Button variant="" className="p-0" style={{color: 'var(--white)', width: '150px'}}>See more <i className="bi bi-arrow-right"></i></Button>
           </NavLink>
         </div>
 

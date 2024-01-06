@@ -66,6 +66,11 @@ export const getPersonMovie = async (id: any) => {
     return person?.data
 }
 
+export const getPeopleMovie = async (id: any) => {
+    const person = await axios.get(`${baseUrl}/person/${id}/movie_credits?api_key=${apiKey}`)
+    return person?.data
+}
+
 export const getSocmed = async (id: any) => {
     const socmed = await axios.get(`${baseUrl}/person/${id}/external_ids?api_key=${apiKey}`)
     return socmed?.data

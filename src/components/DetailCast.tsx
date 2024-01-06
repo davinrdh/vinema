@@ -34,6 +34,7 @@ export default function DetailCast() {
 
     const handleCastDetail = (id: any) => {
         getCastDetail(id)
+        document.body.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     const renderCast = () => {
@@ -54,7 +55,7 @@ export default function DetailCast() {
     const renderCastDetail = () => (
         <>
             <div className='d-flex justify-content-center mb-3 '>
-                <img src={`${castDetail?.person?.profile_path == null ? '/placeholder.jpg' : import.meta.env.VITE_APP_BASEIMG + castDetail?.person?.profile_path}`} alt="" height={300} />
+                <img src={`${castDetail?.person?.profile_path == null ? '/placeholder.jpg' : import.meta.env.VITE_APP_BASEIMG + castDetail?.person?.profile_path}`} alt="" height={300} className='rounded' />
             </div>
             <div className='text-center'>
                 <h6><b>Name</b></h6>
@@ -66,7 +67,7 @@ export default function DetailCast() {
                 <h6><b>Known For</b></h6>
                 <p className='fs-5 mb-1'>{castDetail?.person?.known_for_department}</p>
                 <NavLink to={`/person/${castDetail?.person?.id}`}>
-                    <Button variant='danger'>View More</Button>
+                    <Button variant='outline-danger'>View More</Button>
                 </NavLink>
             </div>
         </>
@@ -100,6 +101,7 @@ const CardStyled = styled(Card)`
     flex: column;
     align-items: center;
     min-height: 255px;
+    transition: .2s all ease-in-out;
 
     &:hover {
         box-shadow: 0px 3px 0px 0px red;

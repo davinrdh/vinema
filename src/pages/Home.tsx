@@ -19,7 +19,7 @@ const Home = () => {
 
   const MovieList = () => {
     return movies?.map((movie: any, i: number) => (
-      <CardMovie movie={movie} key={i} />
+        <CardMovie movie={movie} key={i} />
     ))
   }
 

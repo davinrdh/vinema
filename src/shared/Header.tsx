@@ -85,16 +85,12 @@ export default Header;
 const NavLinkStyled = styled(NavLink)`
   color: var(--white);
   font-weight: 700;
-  transition: ease-in-out 0.5s;
+  transition: .5s;
   padding: 0 1rem;
   text-decoration: none;
 
   &:hover {
       color: red;
-  }
-
-  &.active {
-    color: red;
   }
 `
 // const ThemeMode = styled.div`

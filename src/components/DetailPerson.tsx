@@ -243,11 +243,11 @@ const CardStyled = styled(Card)`
 //   }
 // `
 
-// const TextPersonal = styled.p`
-//   font-size: 16px;
-//   margin: 0;
-//   margin-bottom: 5px;
-// `
+const TextPersonal = styled.p`
+  font-size: 16px;
+  margin: 0;
+  margin-bottom: 5px;
+`
 
 // const ContainerMovie = styled.div`
 // display: flex;

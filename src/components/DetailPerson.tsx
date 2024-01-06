@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getPeopleMovie, getPersonDetail, getSocmed } from '../services/Api'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Button, Card, Col, Container, Row } from 'react-bootstrap'
+import { Card, Col, Container, Row } from 'react-bootstrap'
 import styled from 'styled-components'
 import LessMoreText from './LessMoreText'
 import '../styles/Detail.scss'
@@ -9,7 +9,7 @@ import '../styles/Detail.scss'
 export default function DetailPerson() {
   const [person, setPerson] = useState<any>()
   const [movie, setMovie] = useState<any>()
-  const [viewMore, setViewMore] = useState<boolean>(false)
+  // const [viewMore, setViewMore] = useState<boolean>(false)
   const [socmed, setSocmed] = useState<any>()
 
   const { id } = useParams()
@@ -118,28 +118,28 @@ export default function DetailPerson() {
   //   ))
   // }
 
-  const breakParagraph = (text: any) => {
-    if (!text) {
-      return null
-    }
+  // const breakParagraph = (text: any) => {
+  //   if (!text) {
+  //     return null
+  //   }
 
-    const sentences = text.split('. ')
-    const paragraphs: any = []
-    let paragraph = ''
+  //   const sentences = text.split('. ')
+  //   const paragraphs: any = []
+  //   let paragraph = ''
 
-    sentences.forEach((sentence: any, index: number) => {
-      paragraph += sentence + '. '
+  //   sentences.forEach((sentence: any, index: number) => {
+  //     paragraph += sentence + '. '
 
-      if ((index + 1) % 5 === 0 || index === sentences.length - 1) {
-        paragraphs.push(paragraph)
-        paragraph = ''
-      }
-    })
+  //     if ((index + 1) % 5 === 0 || index === sentences.length - 1) {
+  //       paragraphs.push(paragraph)
+  //       paragraph = ''
+  //     }
+  //   })
 
-    return paragraphs.map((item: any, i: number) => (
-      <p key={i}>{item} <br /></p>
-    ))
-  }
+  //   return paragraphs.map((item: any, i: number) => (
+  //     <p key={i}>{item} <br /></p>
+  //   ))
+  // }
 
   const renderMovie = () => {
     return movie?.cast?.map((data: any, key: number) => (
@@ -218,36 +218,36 @@ const CardStyled = styled(Card)`
   }
 `
 
-const TruncateText = styled.p`
+// const TruncateText = styled.p`
 
-  &.overflow {
-    -webkit-line-clamp: 12;
-    overflow : hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-  }
-`
+//   &.overflow {
+//     -webkit-line-clamp: 12;
+//     overflow : hidden;
+//     text-overflow: ellipsis;
+//     display: -webkit-box;
+//     -webkit-box-orient: vertical;
+//   }
+// `
 
-const BadgeRounded = styled.div`
-  display: flex;
-  justify-content: center;
-  // align-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--white);
+// const BadgeRounded = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   // align-items: center;
+//   width: 40px;
+//   height: 40px;
+//   border-radius: 50%;
+//   background: var(--white);
 
-  i {
-    color: var(--background);
-  }
-`
+//   i {
+//     color: var(--background);
+//   }
+// `
 
-const TextPersonal = styled.p`
-  font-size: 16px;
-  margin: 0;
-  margin-bottom: 5px;
-`
+// const TextPersonal = styled.p`
+//   font-size: 16px;
+//   margin: 0;
+//   margin-bottom: 5px;
+// `
 
 // const ContainerMovie = styled.div`
 // display: flex;

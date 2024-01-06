@@ -1,4 +1,3 @@
-import { size } from 'lodash'
 import { useState } from 'react'
 
 const LessMoreText = ({ template } : ILessMoreText) => {

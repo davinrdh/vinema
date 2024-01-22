@@ -3,7 +3,6 @@ import { getFilter, getSort } from '../services/Api'
 import '../styles/MoviePage.scss'
 import Skeleton from 'react-loading-skeleton'
 import { Form } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom'
 import CardMovie from '../components/CardMovie'
 
 const IndonesiaPage = () => {

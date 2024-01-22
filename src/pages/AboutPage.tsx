@@ -14,7 +14,7 @@ const AboutPage = () => {
         <div>
           <p className="m-0 text-center">Contact me?</p>
           <div className="d-flex gap-3 fs-1">
-            <a href="www.linkedin.com/in/davin-ridha" target="_blank" style={{ color: 'var(--white)' }}>
+            <a href="http://linkedin.com/in/davin-ridha" target="_blank" style={{ color: 'var(--white)' }}>
               <i className="bi bi-linkedin"></i>
             </a>
             <a href="https://github.com/davinrdh" target="_blank" style={{ color: 'var(--white)' }}>

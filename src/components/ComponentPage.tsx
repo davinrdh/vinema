@@ -107,7 +107,7 @@ const Header = styled.div`
   font-size: 20px;
   display: flex;
   justify-content: space-between;
-  margin: 0 120px;
+  margin: 10px 100px;
 
   p {
       font-size: 14px;

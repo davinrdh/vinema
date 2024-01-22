@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { getFilter, getSort } from '../services/Api'
 import '../styles/MoviePage.scss'
 import Skeleton from 'react-loading-skeleton'
 import { Form } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
+import CardMovie from '../components/CardMovie'
 
 const IndonesiaPage = () => {
-  const navigate = useNavigate()
   const [action, setAction] = useState<any>()
   const [emulator, setEmulator] = useState<any>()
   const [sort, setSort] = useState<any>()
@@ -16,16 +16,16 @@ const IndonesiaPage = () => {
       setAction(res)
       console.log(res)
     })
-  }, [  ])
+  }, [])
 
-    useEffect(() => {
-      if(sort) {
-        getSort(`sort_by=${sort}`, `with_original_language=id`).then((res) => {
+  useEffect(() => {
+    if (sort) {
+      getSort(`sort_by=${sort}`, `with_original_language=id`).then((res) => {
         setAction(res)
         console.log(res)
-        })
-      }
-    }, [sort])
+      })
+    }
+  }, [sort])
 
   console.log(sort)
 
@@ -37,24 +37,17 @@ const IndonesiaPage = () => {
   })
 
   const renderAction = () => {
-    return action && action?.map((action: any, i: number) => {
+    return action && action?.map((item: any, i: number) => {
       return (
-        <>
+        <Fragment key={i}>
           {emulator &&
-            <div key={i} onClick={() => navigate(`/detail/${action.id}`)}>
-              <div className="action card" onClick={() => (`/detail/${action.id}`)}>
-                <div className="release">{action?.release_date.slice(0, 4)}</div>
-                {/* <img src={`${import.meta.env.VITE_APP_BASEIMG}/${action?.poster_path}`} alt="" /> */}
-                <img src={`${action?.poster_path == null  ? '/placeholder.jpg' : import.meta.env.VITE_APP_BASEIMG + action?.poster_path}`}  alt="" className={action ? 'place-holder' : ''}/>
-                <div className="action-title text-truncate">{action.title}</div>
-                <div className="action-rate"><i className="bi bi-star-fill"></i> {action.vote_average} </div>
-              </div>
-            </div>}
+            <CardMovie movie={item} />
+          }
           {
             !emulator &&
             <Skeleton count={1} width="170px" height="300px" />
           }
-        </>
+        </Fragment>
       )
     })
   }

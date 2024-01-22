@@ -56,8 +56,10 @@ const CardMovie = ({ movie, showRating = true }: ICardMovie) => {
 export default CardMovie
 
 const CardStyled = styled(Card)`
-      width: 170px;
-      height: 300px;
+      min-width: 170px;
+      max-width: 170px;
+      min-height: 300px;
+      max-height: 300px;
       cursor: pointer;
       overflow: hidden;
       background-color: transparent;

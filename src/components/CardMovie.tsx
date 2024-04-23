@@ -25,6 +25,8 @@ const CardMovie = ({ movie, showRating = true }: ICardMovie) => {
     }, 1 * 1000)
   })
 
+  console.log(parseFloat(movie.vote_average.toFixed(1)))
+
   return (
     <>
       {emulator &&
@@ -38,10 +40,10 @@ const CardMovie = ({ movie, showRating = true }: ICardMovie) => {
             <div className="movie-title">{movie.title}</div>
             <p>Release Date:</p>
             <div className="movie-date">{movie.release_date}</div>
-            <div className="movie-rate">{movie.vote_average} <i className="bi bi-star-fill"></i></div>
+            <div className="movie-rate">{parseFloat(movie.vote_average.toFixed(1))} <i className="bi bi-star-fill"></i></div>
           </div>
           <div className="movie-title text-truncate">{movie.title}</div>
-          {showRating === true ? <div className="movie-rate"><i className="bi bi-star-fill"></i> {movie.vote_average} </div> : ''}
+          {showRating === true ? <div className="movie-rate"><i className="bi bi-star-fill"></i> {parseFloat(movie.vote_average.toFixed(1))} </div> : ''}
         </CardStyled>
       }
       {

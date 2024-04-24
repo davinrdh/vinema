@@ -25,7 +25,6 @@ const CardMovie = ({ movie, showRating = true }: ICardMovie) => {
     }, 1 * 1000)
   })
 
-  console.log(parseFloat(movie.vote_average.toFixed(1)))
 
   return (
     <>
@@ -33,7 +32,7 @@ const CardMovie = ({ movie, showRating = true }: ICardMovie) => {
         <CardStyled onClick={() => navigate(`/movie/${movie.id}`)}>
           <div className="release">{movie?.release_date.slice(0, 4)}</div>
           {emulatorImg &&
-            <img src={`${import.meta.env.VITE_APP_BASEIMG}/${movie?.poster_path}`} alt="" />}
+            <img src={movie?.poster_path === null ? '/default-movie.png' : `${import.meta.env.VITE_APP_BASEIMG}/${movie?.poster_path}`} alt="" />}
           {!emulatorImg &&
             <Skeleton count={1} width="170px" height="300px" />}
           <div className="overlay">
@@ -71,6 +70,7 @@ const CardStyled = styled(Card)`
 
       img {
           border-radius: 8px;
+          height: 250px;
       }
 
       .release {

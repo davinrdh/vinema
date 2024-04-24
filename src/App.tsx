@@ -20,6 +20,7 @@ import EnglishPage from './pages/EnglishPage';
 import AboutPage from './pages/AboutPage';
 import DetailCast from './components/DetailCast';
 import DetailPerson from './components/DetailPerson';
+import Result from './pages/Result';
 
 
 const App = () => {
@@ -49,6 +50,7 @@ const App = () => {
             <Route path='person/:id' element={<DetailPerson />} />
             <Route path='/about' element={<AboutPage />}></Route>
             <Route path='/tv' element={<AboutPage />}></Route>
+            <Route path='/search' element={<Result />}></Route>
           </Route>
         </Routes>
       </Router>

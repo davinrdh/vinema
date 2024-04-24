@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { searchMovie } from "../services/Api"
 import '../styles/SearchBar.scss'
 import { Form, Spinner } from "react-bootstrap"
@@ -39,6 +39,12 @@ const SearchBar = () => {
         setSearchInput(q)
     }
 
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        navigate(`/search?q=${searchInput}`)
+        setSearchInput('')
+    }
+
     useEffect(() => {
 
         const debounce = setTimeout(async () => {
@@ -68,7 +74,7 @@ const SearchBar = () => {
         <>
 
             <div className="search-input">
-                <Form className="d-flex">
+                <Form className="d-flex" onSubmit={handleSubmit}>
                     <Form.Control
                         type="search"
                         placeholder="Search..."

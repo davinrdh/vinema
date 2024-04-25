@@ -41,7 +41,8 @@ const SearchBar = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        navigate(`/search?q=${searchInput}`)
+        let value = searchInput.replace(/ /g, "+")
+        navigate(`/search?q=${value}`)
         setSearchInput('')
     }
 

@@ -15,17 +15,14 @@ const Result = () => {
   const str = qs.stringify(qsParams);
   const value = str.replace(/%20/g, "+");
   const result = value.slice(2, value.length);
-  const searchResult = result.replace('+', " ")
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [result]);
+  const searchResult = result.replace(/\+/g, " ")
 
   useEffect(() => {
     try {
       searchMovie(result).then((res) => {
         setMovie(res);
       });
+    window.scrollTo(0, 0);
     } catch (err) {
       console.log(err);
     }
